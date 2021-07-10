@@ -63,7 +63,8 @@ public abstract class ActionBase {
 
             //ommandに該当するメソッドを実行する
             //(例: action=Employee command=show の場合 EmployeeActionクラスのshow()メソッドを実行する)
-            commandMethod = this.getClass().getDeclaredMethod(command, new Class[0]);
+            //getDeclaredMethodでメソッド特定して、invokeで呼び出し
+            commandMethod = this.getClass().getDeclaredMethod(command, new Class[0]);//メソッドを特定 getDeclaredMethod("メソッド名", "メソッドの引数(引数がない場合はnew Class[0])")
             commandMethod.invoke(this, new Object[0]); //メソッドに渡す引数はなし
 
         } catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException
