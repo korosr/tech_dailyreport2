@@ -158,6 +158,7 @@ public class ReportAction extends ActionBase {
         } else {
 
             putRequestScope(AttributeConst.REPORT, rv); //取得した日報データ
+            putRequestScope(AttributeConst.TOKEN, getTokenId()); //CSRF対策用トークン(リアクション登録用)
 
             //詳細画面を表示
             forward(ForwardConst.FW_REP_SHOW);

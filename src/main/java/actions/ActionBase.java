@@ -112,6 +112,29 @@ public abstract class ActionBase {
         response.sendRedirect(redirectUrl);
 
     }
+    
+    /**
+     * URLを構築しリダイレクトを行う(id追加)
+     * @param action パラメータに設定する値
+     * @param command パラメータに設定する値
+     * @param id パラメータに設定する値
+     * @throws ServletException
+     * @throws IOException
+     */
+    protected void redirectAddId(ForwardConst action, ForwardConst command, String id)
+            throws ServletException, IOException {
+    	
+    	//URLを構築
+        String redirectUrl = request.getContextPath() + "/?action=" + action.getValue();
+        if (command != null) {
+            redirectUrl = redirectUrl + "&command=" + command.getValue();
+        }
+        if(id != null) {
+        	redirectUrl = redirectUrl + "&id=" + id;
+        }
+        //URLへリダイレクト
+        response.sendRedirect(redirectUrl);
+    }
 
     /**
      * CSRF対策 token不正の場合はエラー画面を表示

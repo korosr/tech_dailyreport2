@@ -157,3 +157,12 @@ pre {
 h3 {
     font-size: larger;
 }
+
+/* 拡張機能(いいね) */
+.good_on{
+	color: #e54747
+}
+
+.good_off{
+	color: #528fff
+}

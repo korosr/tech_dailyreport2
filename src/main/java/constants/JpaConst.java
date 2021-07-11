@@ -38,6 +38,13 @@ public interface JpaConst {
     String REP_COL_CONTENT = "content"; //日報の内容
     String REP_COL_CREATED_AT = "created_at"; //登録日時
     String REP_COL_UPDATED_AT = "updated_at"; //更新日時
+    
+    //日報従業員中間テーブル
+    String TABLE_REP_EMP = "reports_employees"; //テーブル名
+    //日報テーブルカラム
+    String REP_EMP_COL_ID = "id"; //id
+    String REP_EMP_COL_REP_ID = "repId"; //id
+    String REP_EMP_COL_EMP_ID = "empId"; //id
 
     //Entity名
     String ENTITY_EMP = "employee"; //従業員
