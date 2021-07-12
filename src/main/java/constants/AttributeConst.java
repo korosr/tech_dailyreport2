@@ -48,7 +48,9 @@ public enum AttributeConst {
     REP_ID("id"),
     REP_DATE("report_date"),
     REP_TITLE("title"),
-    REP_CONTENT("content");
+    REP_CONTENT("content"),
+	REP_REACTION("reaction"),
+	REP_REACTION_EXIST("reaction_exist");
 
     private final String text;
     private final Integer i;

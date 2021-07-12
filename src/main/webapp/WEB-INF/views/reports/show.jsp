@@ -11,6 +11,7 @@
 <c:set var="commEdt" value="${ForwardConst.CMD_EDIT.getValue()}" />
 <c:set var="commCreate" value="${ForwardConst.CMD_CREATE.getValue()}" />
 <c:set var="repId" value="${AttributeConst.REP_ID.getValue()}" />
+<c:set var="reaction" value="${AttributeConst.REP_REACTION.getValue()}" />
 
 <c:import url="/WEB-INF/views/layout/app.jsp">
     <c:param name="content">
@@ -52,8 +53,12 @@
         <form method="POST" action="<c:url value='?action=${actReaction}&command=${commCreate}' />">
         	<input type="hidden" name="${repId}" value="${report.id}">
         	<input type="hidden" name="${AttributeConst.TOKEN.getValue()}" value="${_token}" />
-        	<button type="submit" class="btn p-0 border-0 text-primary"><i class="far fa-thumbs-up fa-2x" style="color: #528fff;"></i></button>
-        	<button type="submit" class="btn p-0 border-0 text-primary"><i class="far fa-thumbs-up fa-2x" style="color: #e54747;"></i></button>
+        	<c:if test="${!reaction_exist}">
+        		<button type="submit" class="btn p-0 border-0 text-primary" name="${reaction}" value="on"><i class="far fa-thumbs-up fa-2x" style="color: #528fff;"></i></button>
+        	</c:if>
+        	<c:if test="${reaction_exist}">
+        		<button type="submit" class="btn p-0 border-0 text-primary" name="${reaction}" value="off"><i class="far fa-thumbs-up fa-2x" style="color: #e54747;"></i></button>
+        	</c:if>
         	</form>
         </div>
 

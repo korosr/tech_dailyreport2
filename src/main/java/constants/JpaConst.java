@@ -49,11 +49,14 @@ public interface JpaConst {
     //Entity名
     String ENTITY_EMP = "employee"; //従業員
     String ENTITY_REP = "report"; //日報
+    String ENTITY_REP_EMP = "employee_report"; //日報_従業員
 
     //JPQL内パラメータ
     String JPQL_PARM_CODE = "code"; //社員番号
     String JPQL_PARM_PASSWORD = "password"; //パスワード
     String JPQL_PARM_EMPLOYEE = "employee"; //従業員
+    String JPQL_PARM_EMPLOYEE_ID = "empId"; //従業員ID
+    String JPQL_PARM_REPORT_ID = "repId"; //レポートID
 
     //NamedQueryの nameとquery
     //全ての従業員をidの降順に取得する
@@ -80,4 +83,11 @@ public interface JpaConst {
     //指定した従業員が作成した日報の件数を取得する
     String Q_REP_COUNT_ALL_MINE = ENTITY_REP + ".countAllMine";
     String Q_REP_COUNT_ALL_MINE_DEF = "SELECT COUNT(r) FROM Report AS r WHERE r.employee = :" + JPQL_PARM_EMPLOYEE;
+    //指定したレポートIDと従業員IDから日報_従業員情報の件数を取得する
+    String Q_REP_EMP_COUNT = ENTITY_REP_EMP + ".countRepEmp";
+    String Q_REP_EMP_COUNT_DEF = "SELECT COUNT(er) FROM EmployeeReport AS er WHERE er.repId = :" + JPQL_PARM_REPORT_ID + " AND er.empId = :" + JPQL_PARM_EMPLOYEE_ID;
+    //指定したレポートIDと従業員IDから日報_従業員情報を取得する
+    String Q_REP_EMP_GET_MINE = ENTITY_REP_EMP + ".getRepEmpMine";
+    String Q_REP_EMP_GET_MINE_DEF = "SELECT er FROM EmployeeReport AS er WHERE er.repId = :" + JPQL_PARM_REPORT_ID + " AND er.empId = :" + JPQL_PARM_EMPLOYEE_ID;
+    
 }

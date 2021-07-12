@@ -46,10 +46,18 @@ public class ReactionAction extends ActionBase{
 			String repId = getRequestParam(AttributeConst.REP_ID);
 			//パラメータの値をもとに日報＿従業員情報(model)のインスタンスを作成する
 			EmployeeReport er = new EmployeeReport(null, ev.getId(), Integer.parseInt(repId));
-	
-			//日報＿従業員情報登録
-			service.create(er);
-						
+			//リアクション登録・解除パラメータ取得
+			String reaction = getRequestParam(AttributeConst.REP_REACTION);
+			if("on".equals(reaction)) {
+				System.out.println("リアクションon" + reaction);
+				//日報＿従業員情報登録
+				service.create(er);
+			}else {
+				EmployeeReport delEr = service.getByEmpRep(ev.getId(), Integer.parseInt(repId));
+				//日報＿従業員情報削除
+				System.out.println("リアクションoff");
+				service.deleteByEmpRep(delEr);
+			}
 			//一覧画面にリダイレクト
 			redirectAddId(ForwardConst.ACT_REP, ForwardConst.CMD_SHOW, repId);
 		}
