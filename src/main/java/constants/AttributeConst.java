@@ -50,7 +50,8 @@ public enum AttributeConst {
     REP_TITLE("title"),
     REP_CONTENT("content"),
 	REP_REACTION("reaction"),
-	REP_REACTION_EXIST("reaction_exist");
+	REP_REACTION_EXIST("reaction_exist"),
+	REP_REACTION_COUNT("reaction_count");
 
     private final String text;
     private final Integer i;

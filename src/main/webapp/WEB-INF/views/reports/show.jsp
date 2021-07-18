@@ -50,15 +50,20 @@
             </tbody>
         </table>
         <div class="mt-2">
-        <form method="POST" action="<c:url value='?action=${actReaction}&command=${commCreate}' />">
-        	<input type="hidden" name="${repId}" value="${report.id}">
-        	<input type="hidden" name="${AttributeConst.TOKEN.getValue()}" value="${_token}" />
-        	<c:if test="${!reaction_exist}">
-        		<button type="submit" class="btn p-0 border-0 text-primary" name="${reaction}" value="on"><i class="far fa-thumbs-up fa-2x" style="color: #528fff;"></i></button>
-        	</c:if>
-        	<c:if test="${reaction_exist}">
-        		<button type="submit" class="btn p-0 border-0 text-primary" name="${reaction}" value="off"><i class="far fa-thumbs-up fa-2x" style="color: #e54747;"></i></button>
-        	</c:if>
+        	<form method="POST" action="<c:url value='?action=${actReaction}&command=${commCreate}' />">
+	        	<input type="hidden" name="${repId}" value="${report.id}">
+	        	<input type="hidden" name="${AttributeConst.TOKEN.getValue()}" value="${_token}" />
+	        	<c:if test="${!reaction_exist}">
+	        		<button type="submit" class="btn p-0 border-0 text-primary" name="${reaction}" value="on"><i class="far fa-thumbs-up fa-2x" style="color: #528fff;"></i></button>
+	        	</c:if>
+	        	<c:if test="${reaction_exist}">
+	        		<button type="submit" class="btn p-0 border-0 text-primary" name="${reaction}" value="off"><i class="far fa-thumbs-up fa-2x" style="color: #e54747;"></i></button>
+	        	</c:if>
+	        	<span>
+	        		<c:if test="${reaction_count > 0}">
+	        			${reaction_count}
+	        		</c:if>
+	        	</span>
         	</form>
         </div>
 

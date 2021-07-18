@@ -162,12 +162,16 @@ public class ReportAction extends ActionBase {
             putRequestScope(AttributeConst.TOKEN, getTokenId()); //CSRF対策用トークン
             //セッションからログイン中の従業員情報を取得
     		EmployeeView ev = (EmployeeView) getSessionScope(AttributeConst.LOGIN_EMP);
-            long reactionCount = reService.countByEmpRep(rv.getId(), ev.getId());
+            long reactionCount = reService.countByEmpRep( ev.getId(), rv.getId());
+            System.out.println("reactionCount" + reactionCount);
             if(reactionCount == 0) {
             	putRequestScope(AttributeConst.REP_REACTION_EXIST, false); //リアクションしていない状態
             }else{
             	putRequestScope(AttributeConst.REP_REACTION_EXIST, true); //リアクションしている状態
             }
+            //リアクションカウント
+            long reactionCountAll = reService.countByRep(rv.getId());
+            putRequestScope(AttributeConst.REP_REACTION_COUNT, reactionCountAll);
             //詳細画面を表示
             forward(ForwardConst.FW_REP_SHOW);
         }

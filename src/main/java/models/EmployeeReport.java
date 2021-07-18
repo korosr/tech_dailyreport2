@@ -25,6 +25,9 @@ import lombok.Setter;
             name = JpaConst.Q_REP_EMP_GET_MINE,
             query = JpaConst.Q_REP_EMP_GET_MINE_DEF),
     @NamedQuery(
+            name = JpaConst.Q_REP_EMP_COUNT_BY_REPID,
+            query = JpaConst.Q_REP_EMP_COUNT_BY_REPID_DEF),
+    @NamedQuery(
             name = JpaConst.Q_REP_EMP_COUNT,
             query = JpaConst.Q_REP_EMP_COUNT_DEF),
 })

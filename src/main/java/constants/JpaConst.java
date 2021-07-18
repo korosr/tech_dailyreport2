@@ -86,6 +86,9 @@ public interface JpaConst {
     //指定したレポートIDと従業員IDから日報_従業員情報の件数を取得する
     String Q_REP_EMP_COUNT = ENTITY_REP_EMP + ".countRepEmp";
     String Q_REP_EMP_COUNT_DEF = "SELECT COUNT(er) FROM EmployeeReport AS er WHERE er.repId = :" + JPQL_PARM_REPORT_ID + " AND er.empId = :" + JPQL_PARM_EMPLOYEE_ID;
+    //指定したレポートIDから日報_従業員情報の件数を取得する
+    String Q_REP_EMP_COUNT_BY_REPID = ENTITY_REP_EMP + ".countRepEmpByRepId";
+    String Q_REP_EMP_COUNT_BY_REPID_DEF = "SELECT COUNT(er) FROM EmployeeReport AS er WHERE er.repId = :" + JPQL_PARM_REPORT_ID;
     //指定したレポートIDと従業員IDから日報_従業員情報を取得する
     String Q_REP_EMP_GET_MINE = ENTITY_REP_EMP + ".getRepEmpMine";
     String Q_REP_EMP_GET_MINE_DEF = "SELECT er FROM EmployeeReport AS er WHERE er.repId = :" + JPQL_PARM_REPORT_ID + " AND er.empId = :" + JPQL_PARM_EMPLOYEE_ID;

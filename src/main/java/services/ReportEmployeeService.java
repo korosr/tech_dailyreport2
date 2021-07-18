@@ -22,7 +22,8 @@ public class ReportEmployeeService extends ServiceBase {
     
     /**
      * 社員IDとレポートIDを条件に該当するデータの件数を取得し、返却する
-     * @param code 社員番号
+     * @param empId 社員ID
+     * @param repId レポートID
      * @return 該当するデータの件数
      */
     public long countByEmpRep(int empId, int repId) {
@@ -30,6 +31,19 @@ public class ReportEmployeeService extends ServiceBase {
         long emp_rep_count = (long) em.createNamedQuery(JpaConst.Q_REP_EMP_COUNT, Long.class)
         		.setParameter(JpaConst.JPQL_PARM_REPORT_ID, repId)
                 .setParameter(JpaConst.JPQL_PARM_EMPLOYEE_ID, empId)
+                .getSingleResult();
+        return emp_rep_count;
+    }
+    
+    /**
+     * レポートIDを条件に該当するデータの件数を取得し、返却する
+     * @param repId レポートID
+     * @return 該当するデータの件数
+     */
+    public long countByRep(int repId) {
+        //レポートIDを条件に該当するデータの件数を取得する
+        long emp_rep_count = (long) em.createNamedQuery(JpaConst.Q_REP_EMP_COUNT_BY_REPID, Long.class)
+        		.setParameter(JpaConst.JPQL_PARM_REPORT_ID, repId)	
                 .getSingleResult();
         return emp_rep_count;
     }

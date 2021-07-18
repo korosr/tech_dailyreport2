@@ -45,7 +45,7 @@ public class ReactionAction extends ActionBase{
 			//パラメータの値を元にレポートID取得
 			String repId = getRequestParam(AttributeConst.REP_ID);
 			//パラメータの値をもとに日報＿従業員情報(model)のインスタンスを作成する
-			EmployeeReport er = new EmployeeReport(null, ev.getId(), Integer.parseInt(repId));
+			EmployeeReport er = new EmployeeReport(null, Integer.parseInt(repId), ev.getId());
 			//リアクション登録・解除パラメータ取得
 			String reaction = getRequestParam(AttributeConst.REP_REACTION);
 			if("on".equals(reaction)) {
